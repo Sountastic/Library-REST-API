@@ -34,4 +34,9 @@ public class Title extends BaseEntity {
     )
     private List<BookEdition> bookEditions = new ArrayList<>();
 
+    public Title(String title, String author, Integer releaseYear) {
+        this.title = title;
+        this.author = author;
+        this.releaseYear = releaseYear;
+    }
 }

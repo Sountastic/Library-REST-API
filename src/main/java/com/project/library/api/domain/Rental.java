@@ -16,9 +16,10 @@ import java.util.List;
 public class Rental extends BaseEntity {
 
     @NonNull
-    @OneToMany
-    @JoinColumn(name = "bookId")
-    private List<BookEdition> books = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "bookEditionId")
+//    private List<BookEdition> books = new ArrayList<>();
+    private BookEdition bookEditionId;
 
     @NonNull
     @ManyToOne
