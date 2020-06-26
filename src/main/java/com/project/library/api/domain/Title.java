@@ -2,8 +2,9 @@ package com.project.library.api.domain;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
@@ -21,6 +22,16 @@ public class Title extends BaseEntity {
     private String author;
 
     @NonNull
-    @Column(name = "publishingYear")
-    private Integer publishingYear;
+    @Column(name = "releaseYear")
+    private Integer releaseYear;
+
+    @NonNull
+    @OneToMany(
+            targetEntity = BookEdition.class,
+            mappedBy = "title",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<BookEdition> bookEditions = new ArrayList<>();
+
 }

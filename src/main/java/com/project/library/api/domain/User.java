@@ -2,9 +2,10 @@ package com.project.library.api.domain;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Getter
@@ -24,4 +25,11 @@ public class User extends BaseEntity {
     @Column(name = "joiningDate")
     private LocalDate joiningDate;
 
+    @OneToMany(
+            targetEntity = Rental.class,
+            mappedBy = "userId",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    private List<Rental> rentals = new ArrayList<>();
 }
