@@ -1,5 +1,6 @@
 package com.project.library.api.domain.dto;
 
+import com.project.library.api.domain.BookStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,9 +10,8 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class TitleDto {
+public class BookEditionDto {
     private Long id;
-    private String title;
-    private String author;
-    private Integer publishingYear;
+    private Long titleId;
+    private BookStatus bookStatus;
 }
