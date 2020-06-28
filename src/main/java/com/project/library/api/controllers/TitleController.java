@@ -29,7 +29,7 @@ public class TitleController {
         return titleMapper.mapToTitleDto(titleService.getTitleById(titleId).orElseThrow(TitleNotFoundException::new));
     }
 
-    @DeleteMapping("{titleId}")
+    @DeleteMapping("/{titleId}")
     public void deleteTitle(@PathVariable("titleId") Long titleId) {
         titleService.deleteTitleById(titleId);
     }
