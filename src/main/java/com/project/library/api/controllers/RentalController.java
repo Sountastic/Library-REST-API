@@ -34,8 +34,8 @@ public class RentalController {
         rentalService.deleteRentalById(rentalId);
     }
 
-    @PutMapping("")
-    public RentalDto updateRental(@RequestBody RentalDto rentalDto) {
+    @PutMapping("/{rentalId}")
+    public RentalDto updateRental(@PathVariable("rentalId") Long rentalId, @RequestBody RentalDto rentalDto) {
         return rentalMapper.mapToRentalDto(rentalService.saveRental(rentalMapper.matToRental(rentalDto)));
     }
 

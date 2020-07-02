@@ -29,7 +29,7 @@ public class BookEditionController {
         return bookEditionMapper.mapToBookEditionDto(bookEditionService.getEditionById(editionId).orElseThrow(BookEditionNotFoundException::new));
     }
 
-    @DeleteMapping("/editionId")
+    @DeleteMapping("/{editionId}")
     public void deleteEdition(@PathVariable("editionId") Long editionId) {
         bookEditionService.deleteEditionById(editionId);
     }

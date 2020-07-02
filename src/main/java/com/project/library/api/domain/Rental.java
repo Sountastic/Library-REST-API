@@ -18,7 +18,6 @@ public class Rental extends BaseEntity {
     @NonNull
     @ManyToOne
     @JoinColumn(name = "bookEditionId")
-//    private List<BookEdition> books = new ArrayList<>();
     private BookEdition bookEditionId;
 
     @NonNull
