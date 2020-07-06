@@ -13,18 +13,22 @@ public class RentalServiceImpl implements RentalService {
     @Autowired
     RentalRepository rentalRepository;
 
+    @Override
     public List<Rental> getAllRentals() {
         return rentalRepository.findAll();
     }
 
+    @Override
     public Optional<Rental> getRentalById(final Long id) {
         return rentalRepository.findById(id);
     }
 
+    @Override
     public Rental saveRental(final Rental rental) {
         return rentalRepository.save(rental);
     }
 
+    @Override
     public void deleteRentalById(final Long id) {
         rentalRepository.deleteById(id);
     }

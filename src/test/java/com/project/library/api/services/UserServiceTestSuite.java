@@ -1,4 +1,4 @@
-package com.project.library.api;
+package com.project.library.api.services;
 
 import com.project.library.api.domain.User;
 import com.project.library.api.repositories.UserRepository;
@@ -31,14 +31,11 @@ public class UserServiceTestSuite {
         userRepository.save(user1);
         userRepository.save(user2);
         //When
-        List<User> testList = userService.getAllUsers();
-        System.out.println(userService.getAllUsers());
+        List<User> usersList = userService.getAllUsers();
         //Then
-        Assert.assertEquals(2, testList.size());
+        Assert.assertEquals(2, usersList.size());
         //CleanUp
         userRepository.deleteAll();
-//        userRepository.delete(user1);
-//        userRepository.delete(user2);
     }
 
     @Test
@@ -54,9 +51,7 @@ public class UserServiceTestSuite {
         //Then
         Assert.assertEquals("Snow", testUser.getLastName());
         //CleanUp
-//        userRepository.deleteAll();
-        userRepository.delete(user1);
-        userRepository.delete(user2);
+        userRepository.deleteAll();
     }
 
     @Test
@@ -70,16 +65,22 @@ public class UserServiceTestSuite {
         //Then
         Assert.assertEquals(2, userService.getAllUsers().size());
         //CleanUp
-//        userRepository.deleteAll();
-        userRepository.delete(user1);
-        userRepository.delete(user2);
+        userRepository.deleteAll();
     }
 
-//    @Test
-//    public void testDeleteUserById() {
-//        //Given
-//        //When
-//        //Then
-//        //CleanUp
-//    }
+    @Test
+    public void testDeleteUserById() {
+        //Given
+        User user1 = new User("John", "Snow", LocalDate.of(2010, 4, 5));
+        User user2 = new User("Daniella", "Hammer", LocalDate.of(2015, 2, 12));
+        userRepository.save(user1);
+        userRepository.save(user2);
+        Long user1Id = user1.getId();
+        //When
+        userService.deleteUserById(user1Id);
+        //Then
+        Assert.assertEquals(1, userService.getAllUsers().size());
+        //CleanUp
+        userRepository.deleteAll();
+    }
 }

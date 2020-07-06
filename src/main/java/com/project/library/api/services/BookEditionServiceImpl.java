@@ -13,18 +13,22 @@ public class BookEditionServiceImpl implements BookEditionService {
     @Autowired
     BookEditionRepository bookEditionRepository;
 
+    @Override
     public List<BookEdition> getAllEditions() {
         return bookEditionRepository.findAll();
     }
 
+    @Override
     public Optional<BookEdition> getEditionById(Long id) {
         return bookEditionRepository.findById(id);
     }
 
+    @Override
     public BookEdition saveEdition(final BookEdition bookEdition) {
         return bookEditionRepository.save(bookEdition);
     }
 
+    @Override
     public void deleteEditionById(final Long id) {
         bookEditionRepository.deleteById(id);
     }
