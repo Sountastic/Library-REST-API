@@ -2,6 +2,7 @@ package com.project.library.api.domain.dto;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -12,6 +13,6 @@ public class RentalDto {
     private Long id;
     private Long bookId;
     private Long userId;
-    private Date rentalDate;
-    private Date returnDate;
+    private LocalDate rentalDate;
+    private LocalDate returnDate;
 }

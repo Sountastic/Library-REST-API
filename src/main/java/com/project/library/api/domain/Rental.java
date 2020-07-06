@@ -4,9 +4,8 @@ package com.project.library.api.domain;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalDate;
+
 
 @AllArgsConstructor
 @Getter
@@ -27,10 +26,10 @@ public class Rental extends BaseEntity {
 
     @NonNull
     @Column(name = "rentalDate")
-    private Date rentalDate;
+    private LocalDate rentalDate;
 
     @NonNull
     @Column(name = "returnDate")
-    private Date returnDate;
+    private LocalDate returnDate;
 
 }

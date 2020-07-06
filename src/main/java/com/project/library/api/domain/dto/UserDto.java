@@ -2,6 +2,7 @@ package com.project.library.api.domain.dto;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -12,5 +13,5 @@ public class UserDto {
     private Long id;
     private String firstName;
     private String lastName;
-    private Date joiningDate;
+    private LocalDate joiningDate;
 }

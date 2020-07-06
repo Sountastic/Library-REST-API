@@ -3,8 +3,8 @@ package com.project.library.api.domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
@@ -23,7 +23,7 @@ public class User extends BaseEntity {
     private String lastName;
 
     @Column(name = "joiningDate")
-    private Date joiningDate;
+    private LocalDate joiningDate;
 
     @OneToMany(
             targetEntity = Rental.class,
@@ -33,7 +33,7 @@ public class User extends BaseEntity {
     )
     private List<Rental> rentals = new ArrayList<>();
 
-    public User(String firstName, String lastName, Date joiningDate) {
+    public User(String firstName, String lastName, LocalDate joiningDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.joiningDate = joiningDate;

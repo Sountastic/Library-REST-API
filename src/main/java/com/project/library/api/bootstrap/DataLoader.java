@@ -9,8 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -39,8 +38,8 @@ public class DataLoader implements CommandLineRunner {
 
     private void loadData() {
 
-        User user1 = new User("Tom", "Snow", new Date(99, 3, 13));
-        User user2 = new User("Justyna", "Wozniak", new Date(98, 1, 10));
+        User user1 = new User("Tom", "Snow", LocalDate.of(2018,3,4));
+        User user2 = new User("Justyna", "Wozniak", LocalDate.of(1998, 1, 10));
         userRepository.saveAndFlush(user1);
         userRepository.saveAndFlush(user2);
 
@@ -62,9 +61,9 @@ public class DataLoader implements CommandLineRunner {
         bookEditionRepository.saveAndFlush(bookEdition5);
         bookEditionRepository.saveAndFlush(bookEdition6);
 
-        Rental rental1 = new Rental(bookEdition4, user1, new Date(2020, 3, 02), new Date(2020, 7, 13));
-        Rental rental2 = new Rental(bookEdition5, user1, new Date(2018, 9, 23), new Date(2019, 1, 11));
-        Rental rental3 = new Rental(bookEdition6, user1, new Date(2019, 11, 30), new Date(2020, 4, 3));
+        Rental rental1 = new Rental(bookEdition4, user1, LocalDate.of(2020, 3, 2), LocalDate.of(2020, 7, 13));
+        Rental rental2 = new Rental(bookEdition5, user1, LocalDate.of(2018, 9, 23), LocalDate.of(2019, 1, 11));
+        Rental rental3 = new Rental(bookEdition6, user1, LocalDate.of(2019, 11, 30), LocalDate.of(2020, 4, 3));
         rentalRepository.saveAndFlush(rental1);
         rentalRepository.saveAndFlush(rental2);
         rentalRepository.saveAndFlush(rental3);
