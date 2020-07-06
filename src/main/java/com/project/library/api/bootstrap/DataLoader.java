@@ -6,12 +6,17 @@ import com.project.library.api.repositories.RentalRepository;
 import com.project.library.api.repositories.TitleRepository;
 import com.project.library.api.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.boot.autoconfigure.data.ConditionalOnRepositoryType;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PreDestroy;
 import java.time.LocalDate;
 
 @Component
+@ConditionalOnProperty(prefix = "prod.", value = "run")
 public class DataLoader implements CommandLineRunner {
 
     private final BookEditionRepository bookEditionRepository;
@@ -37,7 +42,6 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-
         User user1 = new User("Tom", "Snow", LocalDate.of(2018,3,4));
         User user2 = new User("Justyna", "Wozniak", LocalDate.of(1998, 1, 10));
         userRepository.saveAndFlush(user1);

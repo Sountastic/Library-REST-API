@@ -36,9 +36,9 @@ public class UserServiceTestSuite {
         //Then
         Assert.assertEquals(2, testList.size());
         //CleanUp
-//        userRepository.deleteAll();
-        userRepository.deleteById(user1.getId());
-        userRepository.deleteById(user2.getId());
+        userRepository.deleteAll();
+//        userRepository.delete(user1);
+//        userRepository.delete(user2);
     }
 
     @Test
@@ -55,8 +55,8 @@ public class UserServiceTestSuite {
         Assert.assertEquals("Snow", testUser.getLastName());
         //CleanUp
 //        userRepository.deleteAll();
-        userRepository.deleteById(user1.getId());
-        userRepository.deleteById(user2.getId());
+        userRepository.delete(user1);
+        userRepository.delete(user2);
     }
 
     @Test
@@ -71,8 +71,8 @@ public class UserServiceTestSuite {
         Assert.assertEquals(2, userService.getAllUsers().size());
         //CleanUp
 //        userRepository.deleteAll();
-        userRepository.deleteById(user1.getId());
-        userRepository.deleteById(user2.getId());
+        userRepository.delete(user1);
+        userRepository.delete(user2);
     }
 
 //    @Test
