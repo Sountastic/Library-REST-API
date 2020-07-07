@@ -2,7 +2,6 @@ package com.project.library.api.services;
 
 import com.project.library.api.domain.User;
 import com.project.library.api.repositories.UserRepository;
-import com.project.library.api.services.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
