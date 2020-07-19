@@ -26,7 +26,8 @@ public class BookEditionController {
     @GetMapping("/{editionId}")
     @ResponseBody
     public BookEditionDto getEdition(@PathVariable("editionId") Long editionId) throws BookEditionNotFoundException {
-        return bookEditionMapper.mapToBookEditionDto(bookEditionService.getEditionById(editionId).orElseThrow(BookEditionNotFoundException::new));
+        return bookEditionMapper.mapToBookEditionDto(bookEditionService
+                .getEditionById(editionId).orElseThrow(BookEditionNotFoundException::new));
     }
 
     @DeleteMapping("/{editionId}")
@@ -36,7 +37,8 @@ public class BookEditionController {
 
     @PutMapping("")
     public BookEditionDto updateEdition(@RequestBody BookEditionDto bookEditionDto) {
-        return bookEditionMapper.mapToBookEditionDto(bookEditionService.saveEdition(bookEditionMapper.mapToBookEdition(bookEditionDto)));
+        return bookEditionMapper.mapToBookEditionDto(bookEditionService
+                .saveEdition(bookEditionMapper.mapToBookEdition(bookEditionDto)));
     }
 
     @PostMapping("")
