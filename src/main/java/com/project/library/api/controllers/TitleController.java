@@ -34,8 +34,8 @@ public class TitleController {
         titleService.deleteTitleById(titleId);
     }
 
-    @PutMapping("")
-    public TitleDto updateTitle(@RequestBody TitleDto titleDto) {
+    @PutMapping("/{titleId}")
+    public TitleDto updateTitle(@PathVariable("titleId") Long titleId, @RequestBody TitleDto titleDto) {
         return titleMapper.mapToTitleDto(titleService.saveTitle(titleMapper.mapToTitle(titleDto)));
     }
 

@@ -19,6 +19,7 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -76,4 +77,21 @@ public class TitleControllerTestSuite {
         verify(titleServiceMock, times(1)).getTitleById(1L);
         verifyNoMoreInteractions(titleServiceMock);
     }
+
+/*    @Test
+    public void updateTitle() throws Exception {
+        //Given
+        Title title1 = new Title("Catch 22", "J.Haller", 1968);
+        //When
+        TitleDto titleDto = new TitleDto(1L,"Catch 22", "Joseph Haller", 1968);
+        when(titleServiceMock.saveTitle(titleMapperMock.mapToTitle(titleDto))).thenReturn(titleMapperMock.mapToTitle(titleDto));
+        mockMvc.perform(put("/v1/title"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.title", is("Catch 22")))
+                .andExpect(jsonPath("$.author", is("Joseph Haller")))
+                .andExpect(jsonPath("$.releaseYear", is(1968)));
+        //Then
+        verify(titleServiceMock, times(1)).getAllTitles();
+        verifyNoMoreInteractions(titleServiceMock);
+    }*/
 }
