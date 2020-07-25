@@ -75,7 +75,6 @@ public class DataLoader implements CommandLineRunner {
 
     @PreDestroy
     public void removeData() {
-
         bookEditionRepository.deleteAll();
         rentalRepository.deleteAll();
         titleRepository.deleteAll();
